@@ -29,14 +29,7 @@ pipeline {
                 echo 'Ejecutando pruebas...'
                 script {
                     docker.image("${DOCKER_IMAGE}:${DOCKER_TAG}").inside {
-    sh """
-    python - << 'EOF'
-import app
-print("API importada correctamente")
-EOF
-    """
-}
-
+                        sh 'python -c "import app; print(\\"API importada correctamente\\")"'
                 }
             }
         }
@@ -76,3 +69,4 @@ EOF
     }
 
 }
+

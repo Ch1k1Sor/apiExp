@@ -30,6 +30,8 @@ pipeline {
                 script {
                     docker.image("${DOCKER_IMAGE}:${DOCKER_TAG}").inside {
                         sh 'python -c "import app; print(\\"API importada correctamente\\")"'
+                    }
+                }
                 }
             }
         }
@@ -69,4 +71,5 @@ pipeline {
     }
 
 }
+
 
